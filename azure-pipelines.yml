@@ -10,23 +10,18 @@ pool:
 
 steps:
 - task: TerraformCLI@0
-  displayName: Terraform Init
   inputs:
     command: 'init'
-    allowTelemetryCollection: true
-
+    allowTelemetryCollection: false
 - task: TerraformCLI@0
-  displayName: Terraform Plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
+    environmentServiceName: 'kubeterra'
     allowTelemetryCollection: false
-
 - task: TerraformCLI@0
-  displayName: Terraform Apply
   inputs:
     command: 'apply'
-    environmentServiceName: 'youtube-app-service-connection'
+    environmentServiceName: 'kubeterra'
     allowTelemetryCollection: true
 
 
